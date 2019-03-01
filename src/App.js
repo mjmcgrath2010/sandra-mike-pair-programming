@@ -1,26 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import Header from './header.js'
 import logo from './logo.svg';
 import './App.css';
+import Button from './Button.js'
 
 class App extends Component {
+  state = {
+      description: 'Hello Sandra, I am the parent'
+  }
+
+  componentDidMount() {
+
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Fragment className="App">
+        <Header title="Hello world" description={this.state.description} />
+        <Button clickHandler={() => console.log('click')} text={'Change the header'} />
+      </Fragment>
     );
   }
 }
